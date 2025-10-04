@@ -1,6 +1,8 @@
+import tailwindcss from "@tailwindcss/vite";
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: "2024-11-01",
+  compatibilityDate: "2025-10-04",
   devtools: { enabled: true },
   devServer: { https: true },
   ssr: false,
@@ -25,19 +27,16 @@ export default defineNuxtConfig({
       ],
     },
   },
-  css: [],
-  modules: ["@nuxt/eslint", "@nuxtjs/tailwindcss", "@vueuse/nuxt", "@pinia/nuxt", "nuxt-svgo"],
-  tailwindcss: {
-    cssPath: ["./assets/css/tailwind.css", { injectPosition: "first" }],
-    viewer: true,
-    exposeConfig: true,
-    editorSupport: true,
+  css: ["~/assets/css/tailwind.css"],
+  modules: ["@nuxt/eslint", "@vueuse/nuxt", "@pinia/nuxt", "nuxt-svgo"],
+  vite: {
+    plugins: [tailwindcss()],
   },
   svgo: {
-    autoImportPath: "./assets/icons",
+    autoImportPath: "./app/assets/icons",
     componentPrefix: "icon",
   },
   pinia: {
-    storesDirs: ["./stores/**"],
+    storesDirs: ["./app/stores/**"],
   },
 });

@@ -6,6 +6,6 @@
       <Icon name="nuxt" class="size-20" />
     </div>
     <h1 class="font-mono text-4xl font-bold text-black dark:text-white">Welcome to Nuxt Boilerplate</h1>
-    <p class="mt-4 font-mono text-lg text-black dark:text-white">This is a simple example of a Nuxt 3 application.</p>
+    <p class="mt-4 font-mono text-lg text-black dark:text-white">This is a simple example of a Nuxt 4 application.</p>
   </main>
 </template>
