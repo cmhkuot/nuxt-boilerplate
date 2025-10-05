@@ -4,39 +4,20 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineNuxtConfig({
   compatibilityDate: "2025-10-04",
   devtools: { enabled: true },
+  // debug: true, // Uncomment this line to enable debug mode
   devServer: { https: true },
-  ssr: false,
-  app: {
-    rootTag: "app",
-    head: {
-      title: "Nuxt Boilerplate",
-      htmlAttrs: {
-        lang: "en",
-      },
-      meta: [
-        { name: "viewport", content: "width=device-width, initial-scale=1" },
-        { charset: "utf-8" },
-        { name: "description", content: "Nuxt Boilerplate" },
-      ],
-      link: [
-        {
-          rel: "icon",
-          type: "image/png",
-          href: "/favicon.ico",
-        },
-      ],
-    },
-  },
+  // ssr: false, // Uncomment this line to disable server-side rendering
+  app: { rootTag: "app" },
   css: ["~/assets/css/tailwind.css"],
   modules: ["@nuxt/eslint", "@vueuse/nuxt", "@pinia/nuxt", "nuxt-svgo"],
   vite: {
     plugins: [tailwindcss()],
   },
   svgo: {
-    autoImportPath: "./app/assets/icons",
+    autoImportPath: "~/assets/icons",
     componentPrefix: "icon",
   },
   pinia: {
-    storesDirs: ["./app/stores/**"],
+    storesDirs: ["~/stores/**"],
   },
 });

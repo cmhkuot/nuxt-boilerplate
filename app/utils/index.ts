@@ -1,4 +1,3 @@
-export { default as clm } from "./clm";
 /**
  * Creates a delay for the specified milliseconds
  * @param ms - Milliseconds to delay
