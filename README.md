@@ -1,100 +1,101 @@
+
+
 # Nuxt Boilerplate
 
-A modern, feature-rich Nuxt 3 starter template with essential configurations and tools pre-installed for rapid development.
+![Nuxt](https://img.shields.io/badge/Nuxt-4%2B-00DC82?logo=nuxt.js&logoColor=white)
+![Vue](https://img.shields.io/badge/Vue-3%2B-4FC08D?logo=vue.js&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.x-38B2AC?logo=tailwindcss&logoColor=white)
 
-![Nuxt Version](https://img.shields.io/badge/Nuxt-latest-00DC82)
-![Vue Version](https://img.shields.io/badge/Vue-latest-4FC08D)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.1.x-38B2AC)
+Personal Nuxt boilerplate for rapid project setup and best practices.
 
 ## Features
 
-- ⚡️ [Nuxt v4](https://nuxt.com/) - The Intuitive Vue Framework (latest major)
-- 💨 [Tailwind CSS v4](https://tailwindcss.com/) with jit mode for rapid styling
-- 🍍 [Pinia](https://pinia.vuejs.org/) - The intuitive store for Vue.js
-- 🧩 [VueUse](https://vueuse.org/) - Collection of essential Vue Composition Utilities
-- 📦 [SVGO](https://github.com/svg/svgo) integration via nuxt-svgo
-- 🔍 [ESLint](https://eslint.org/) + [Prettier](https://prettier.io/) for code linting and formatting
+- Nuxt v4 (latest major)
+- Vue 3
+- TypeScript
+- Tailwind CSS v4 (JIT mode)
+- Pinia (state management)
+- VueUse (composition utilities)
+- SVGO integration
+- Pre-configured ESLint & Prettier
+- Example components, stores, and utilities
 
-## Quick Start
+## Getting Started
 
-### Prerequisites
+1. **Install dependencies:**
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   pnpm install
+   ```
 
-- Node.js (Latest LTS version recommended)
-- npm, pnpm, or yarn
+2. **(Optional) Create a .env file:**
+   ```bash
+   cp .env.example .env
+   ```
 
-### Setup
+3. **Run the development server:**
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   ```
 
-1. Clone this repository
+4. Open [http://localhost:3000](http://localhost:3000) to view your app.
 
-```bash
-git clone https://github.com/yourusername/nuxt-boilerplate.git my-project
-cd my-project
-```
+## Usage
 
-2. Install dependencies
+- Edit `app/app.vue` or add pages in `app/pages/` to start building your app.
+- Add components in `app/components/`.
+- Update global styles in `app/assets/css/tailwind.css`.
+- Use Pinia stores in `app/stores/` and utilities in `app/utils/`.
+- Add or update types in `app/types/`.
 
-```bash
-npm install
-# or
-yarn install
-# or
-pnpm install
-```
+## Customization
 
-3. Create a `.env` file based on `.env.example` if needed
+- Update `nuxt.config.ts` and `tsconfig.json` as needed.
+- Add environment variables in `.env` (see `.env.example` if available).
+- Replace or extend the example components, stores, and utilities.
 
-```bash
-cp .env.example .env
-```
+## Deployment
 
-4. Start the development server
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
-
-Your application will be available at `http://localhost:3000` (HTTPS may require additional setup).
+Deploy easily to [Vercel](https://vercel.com/) or your preferred platform.
 
 ## Project Structure
 
 ```
-.
-├── assets/             # Static assets like CSS and SVG icons
-├── components/         # Vue components
-├── pages/              # Application pages and routes
-├── public/             # Public static assets
-├── stores/             # Pinia stores
-├── types/              # TypeScript type declarations
-├── utils/              # Utility functions
-├── app.vue             # Main application component
-├── nuxt.config.ts      # Nuxt configuration
-└── tailwind.config.ts  # Tailwind CSS configuration
+nuxt-boilerplate/
+├── app/
+│   ├── app.vue
+│   ├── assets/
+│   │   └── css/
+│   │       └── tailwind.css
+│   ├── components/
+│   ├── pages/
+│   ├── stores/
+│   ├── types/
+│   └── utils/
+├── public/
+├── nuxt.config.ts
+├── tailwind.config.ts
+├── tsconfig.json
+└── package.json
 ```
-
-## Development
-
-### Commands
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run generate` - Generate static site
-- `npm run preview` - Preview production build locally
-- `npm run postinstall` - Run Nuxt preparations after installing dependencies
 
 ## Main Dependencies
 
 - **Nuxt**: Vue framework for server-side rendering, static site generation, and more
-- **Vue**: Progressive JavaScript framework
-- **Pinia**: State management solution
+- **Vue**: JavaScript framework
+- **Pinia**: State management
 - **Tailwind CSS**: Utility-first CSS framework
-- **VueUse**: Collection of Vue Composition API utilities
+- **VueUse**: Vue composition utilities
 - **ESLint & Prettier**: Code linting and formatting
-- **TypeScript**: Strongly typed programming language
-- **SVGO**: SVG optimization tool
+- **TypeScript**: Strongly typed language
+- **SVGO**: SVG optimization
 
 ## License
 
@@ -102,5 +103,4 @@ This project is licensed under the terms found in the [LICENSE](./LICENSE) file.
 
 ## Author
 
-
-Created by [cmhkuot](https://github.com/cmhkuot)
+Created by [Son H.Do](https://github.com/cmhkuot)
