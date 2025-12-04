@@ -1,5 +1,3 @@
-
-
 # Nuxt Boilerplate
 
 ![Nuxt](https://img.shields.io/badge/Nuxt-4%2B-00DC82?logo=nuxt.js&logoColor=white)
