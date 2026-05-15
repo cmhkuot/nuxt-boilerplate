@@ -1,6 +1,6 @@
 {
   "name": "nuxt-boilerplate",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "type": "module",
   "private": true,
   "description": "A simple Nuxt.js boilerplate for quick setup.",
@@ -14,32 +14,44 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "postinstall": "nuxt prepare",
-    "preview": "nuxt preview"
+    "preview": "nuxt preview",
+    "prepare": "husky"
   },
   "dependencies": {
     "@pinia/nuxt": "^0.11.3",
     "@tailwindcss/vite": "^4.3.0",
-    "@vueuse/core": "^13.9.0",
-    "@vueuse/nuxt": "^13.9.0",
+    "@vueuse/core": "^14.3.0",
+    "@vueuse/nuxt": "^14.3.0",
     "clsx": "^2.1.1",
     "nuxt": "^4.4.5",
-    "nuxt-svgo": "^4.2.6",
+    "nuxt-svgo": "^5.3.0",
     "pinia": "^3.0.4",
     "tailwind-merge": "^3.6.0",
     "tailwindcss": "^4.3.0",
     "vue": "^3.5.34",
-    "vue-router": "^5.0.6"
+    "vue-router": "^5.0.7"
   },
   "devDependencies": {
     "@nuxt/eslint": "^1.15.2",
-    "eslint": "^9.39.4",
+    "eslint": "^10.3.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.5",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.0.4",
     "prettier": "^3.8.3",
-    "prettier-plugin-tailwindcss": "^0.6.14",
-    "typescript": "^5.9.3"
+    "prettier-plugin-tailwindcss": "^0.8.0",
+    "typescript": "^6.0.3"
   },
   "overrides": {
     "vue": "^3.5.34"
+  },
+  "lint-staged": {
+    "*.{js,ts,mjs,vue}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,css,md}": [
+      "prettier --write"
+    ]
   }
 }

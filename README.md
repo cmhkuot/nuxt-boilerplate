@@ -4,50 +4,166 @@
 ![Vue](https://img.shields.io/badge/Vue-3%2B-4FC08D?logo=vue.js&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.x-38B2AC?logo=tailwindcss&logoColor=white)
 
-Personal Nuxt boilerplate for rapid project setup and best practices.
+Personal Nuxt 4 boilerplate — batteries-included starting point for any project type.
 
 ## Features
 
-- Nuxt v4 (latest major)
-- Vue 3
-- TypeScript
-- Tailwind CSS v4 (JIT mode)
-- Pinia (state management)
-- VueUse (composition utilities)
-- SVGO integration
-- Pre-configured ESLint & Prettier
-- Example components, stores, and utilities
+- **Nuxt 4** + Vue 3.5 + TypeScript
+- **Tailwind CSS v4** with Vite plugin + `clm()` class-merge utility
+- **Pinia** state management (store auto-import)
+- **VueUse** composition utilities
+- **nuxt-svgo** — SVG auto-import from `app/assets/icons/` with `<Icon>` component
+- **ESLint + Prettier** pre-configured
+- **Husky + lint-staged** — pre-commit hook runs ESLint + Prettier on staged files only
+- **Default layout** with header/footer skeleton
+- **Error pages** — `error.vue` (404 & 500) + `[...slug].vue` catch-all
+- **`useSeo()`** — per-page title, description, OG tags, Twitter card, canonical URL
+- **`useApi()`** — `$fetch` wrapper with base URL + auth token injection
+- **Auth middleware** example — route guard template using `definePageMeta`
 
-## Getting Started
+## Start a New Project
 
-1. **Install dependencies:**
-   ```bash
-   npm install
-   # or
-   yarn install
-   # or
-   pnpm install
-   ```
+**Option 1 — GitHub CLI** (creates a new repo from this template):
 
-2. **(Optional) Create a .env file:**
-   ```bash
-   cp .env.example .env
-   ```
+```bash
+gh repo create my-project --template cmhkuot/nuxt-boilerplate --clone
+cd my-project && npm install
+```
 
-3. **Run the development server:**
-   ```bash
-   npm run dev
-   # or
-   yarn dev
-   # or
-   pnpm dev
-   ```
+**Option 2 — degit** (local only, no git history):
 
-4. Open [http://localhost:3000](http://localhost:3000) to view your app.
+```bash
+npx degit cmhkuot/nuxt-boilerplate my-project
+cd my-project && npm install
+```
 
-## Usage
+**Option 3 — Nuxt CLI**:
 
-- Edit `app/app.vue` or add pages in `app/pages/` to start building your app.
+```bash
+npx nuxi init my-project --template gh:cmhkuot/nuxt-boilerplate
+```
+
+> To enable the "Use this template" button on GitHub, go to **Settings → Template repository**.
+
+## Setup
+
+```bash
+# 1. Install dependencies
+npm install
+
+# 2. Set up environment variables
+cp .env.example .env
+
+# 3. Start development server
+npm run dev
+```
+
+Open [https://localhost:3000](https://localhost:3000) (HTTPS is enabled by default).
+
+## Environment Variables
+
+| Variable                   | Description                    | Default            |
+| -------------------------- | ------------------------------ | ------------------ |
+| `NUXT_PUBLIC_API_BASE_URL` | API server base URL            | `""`               |
+| `NUXT_PUBLIC_SITE_URL`     | Site URL for canonical/OG tags | `""`               |
+| `NUXT_PUBLIC_APP_NAME`     | App display name in layout     | `Nuxt Boilerplate` |
+
+## Project Structure
+
+```
+app/
+├── assets/
+│   ├── css/tailwind.css       # Tailwind entry
+│   └── icons/                 # SVG icons (auto-imported as <Icon name="...">)
+├── components/
+│   └── Icon.vue               # SVG icon wrapper
+├── composables/
+│   ├── useApi.ts              # $fetch wrapper with auth + error handling
+│   └── useSeo.ts              # Per-page SEO (title, OG, Twitter card, canonical)
+├── layouts/
+│   └── default.vue            # Default layout (header + slot + footer)
+├── middleware/
+│   └── auth.ts                # Route guard example
+├── pages/
+│   ├── index.vue              # Home page
+│   └── [...slug].vue          # 404 catch-all
+├── stores/
+│   └── app.ts                 # Global Pinia store
+├── types/
+│   └── svg.d.ts               # SVG type declarations
+├── utils/
+│   ├── clm.ts                 # clsx + tailwind-merge helper
+│   └── index.ts               # Shared utilities
+├── app.vue                    # App root
+└── error.vue                  # Error boundary (404 / 500)
+```
+
+## Conventions
+
+### Pages & Layouts
+
+Pages use the `default` layout automatically. Override per-page:
+
+```vue
+<script setup>
+definePageMeta({ layout: "custom" });
+</script>
+```
+
+### SEO
+
+```vue
+<script setup>
+useSeo({
+  title: "My Page",
+  description: "Page description",
+  image: "https://example.com/og.png",
+});
+</script>
+```
+
+### API Calls
+
+```vue
+<script setup>
+const { $api } = useApi()
+const users = await $api<User[]>('/users')
+</script>
+```
+
+### Protected Routes
+
+```vue
+<script setup>
+definePageMeta({ middleware: "auth" });
+</script>
+```
+
+### SVG Icons
+
+Place `.svg` files in `app/assets/icons/` and use:
+
+```vue
+<Icon name="my-icon" />
+```
+
+### Class Merging
+
+```ts
+import { clm } from "~/utils/clm";
+const cls = clm("px-4 py-2", isActive && "bg-blue-500", props.class);
+```
+
+## Scripts
+
+| Command            | Description                                                  |
+| ------------------ | ------------------------------------------------------------ |
+| `npm run dev`      | Start dev server (HTTPS)                                     |
+| `npm run build`    | Build for production                                         |
+| `npm run preview`  | Preview production build                                     |
+| `npm run generate` | Static site generation                                       |
+| `npm run prepare`  | Install Husky hooks (runs automatically after `npm install`) |
+
 - Add components in `app/components/`.
 - Update global styles in `app/assets/css/tailwind.css`.
 - Use Pinia stores in `app/stores/` and utilities in `app/utils/`.

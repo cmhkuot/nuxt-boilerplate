@@ -24,6 +24,13 @@ export default defineNuxtConfig({
     },
   },
   css: ["~/assets/css/tailwind.css"],
+  runtimeConfig: {
+    public: {
+      apiBaseUrl: "",
+      siteUrl: "",
+      appName: "Nuxt Boilerplate",
+    },
+  },
   modules: ["@nuxt/eslint", "@vueuse/nuxt", "@pinia/nuxt", "nuxt-svgo"],
   vite: {
     plugins: [tailwindcss()],
